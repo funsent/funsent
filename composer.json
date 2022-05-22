@@ -16,7 +16,7 @@
     }],
     "require": {
         "php": ">=7.1.0",
-        "funsent/framework": "^0.9.0"
+        "funsent/framework": "*"
     },
     "require-dev": {},
     "autoload": {
