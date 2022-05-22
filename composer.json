@@ -16,9 +16,11 @@
     }],
     "require": {
         "php": ">=7.1.0",
-        "funsent/framework": "dev-master"
+        "funsent/framework": "^1.0"
     },
-    "require-dev": {},
+    "require-dev": {
+        "funsent/framework": "dev-master"
+        },
     "autoload": {
         "psr-4": {
             "app\\": "app"
