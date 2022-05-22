@@ -15,8 +15,7 @@
         "email": "2018708@qq.com"
     }],
     "require": {
-        "php": ">=7.1.0",
-        "funsent/framework": "^1.0"
+        "php": ">=7.1.0"
     },
     "require-dev": {
         "funsent/framework": "dev-master"
