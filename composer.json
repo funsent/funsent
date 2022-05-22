@@ -1,0 +1,34 @@
+{
+    "name": "funsent/funsent",
+    "type": "project",
+    "description": "the funsent framework project",
+    "homepage": "http://www.funsent.com/",
+    "keywords": [
+        "php",
+        "framework",
+        "funsent",
+        "project"
+    ],
+    "license": "MIT",
+    "authors": [{
+        "name": "yanggf",
+        "email": "2018708@qq.com"
+    }],
+    "require": {
+        "php": ">=7.1.0",
+        "funsent/framework": "^0.9.0"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        },
+        "psr-0": {
+            "": "extension/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "prefer-stable": true
+}

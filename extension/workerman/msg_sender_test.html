@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<ul id="main"></ul>
+
+<script src='socket.io.js'></script>
+<script>
+    // 连接服务端，workerman.net:2120换成实际部署web-msg-sender服务的域名或者ip
+    var socket = io('http://10.30.49.55:2120');
+    // uid可以是自己网站的用户id，以便针对uid推送以及统计在线人数
+    uid = Math.random();
+    // socket连接后以uid登录
+    socket.on('connect', function(){
+        socket.emit('login', uid);
+    });
+    // 后端推送来消息时
+    socket.on('new_msg', function(msg){
+        insert_li("收到消息："+msg + '<br />');
+    });
+    // 后端推送来在线数据时
+    socket.on('update_online_count', function(online_stat){
+        insert_li(online_stat + '<br />');
+    });
+    
+    function insert_li(str)
+    {
+        var ul = document.getElementById('main');
+        var li = document.createElement('li');
+        li.innerHTML = str;
+        if (ul.children[0]) {
+            ul.insertBefore(li, ul.children[0]);
+        } else {
+            ul.appendChild(li);
+        }
+    }
+</script>
+
+
+
+</body>
+</html>

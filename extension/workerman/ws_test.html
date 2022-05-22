@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket test</title>
+</head>
+<body>
+
+    <ul id="main"></ul>
+    
+    <script type="text/javascript">
+
+    var i = 1;
+    var ws = new WebSocket("ws://10.30.49.55:2000");
+    var main = document.getElementById('main');
+    //setInterval(function(){
+        ws.onopen = function() {
+            insert_li("Connection opened.");
+            ws.send('yanggf');
+            insert_li("给服务端发送一个字符串：yanggf");
+        };
+        ws.onmessage = function(e) {
+            insert_li("收到服务端的消息：" + e.data);
+        };
+        ws.onclose = function(evt) {
+            insert_li("Connection closed.");
+        };
+    //}, 1000);
+    //
+    
+    function insert_li(str)
+    {
+        var ul = document.getElementById('main');
+        var li = document.createElement('li');
+        li.innerHTML = str;
+        if (ul.children[0]) {
+            ul.insertBefore(li, ul.children[0]);
+        } else {
+            ul.appendChild(li);
+        }
+    }
+
+    </script>
+
+</body>
+</html>
