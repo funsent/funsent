@@ -8,6 +8,7 @@
 + public
 + runtime
 + tests
++ vendor
   .env.example
   .gitignore
   composer.json
