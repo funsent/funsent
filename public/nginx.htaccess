@@ -1,0 +1,13 @@
+# Nginx伪静态文件
+
+
+# 将以下是301跳转设置，请自定修改为您的域名
+# if ($Host = 'xxx.com') {
+#     rewrite ^/(.*)$ http://yourdomain.com/$1 permanent;
+# }
+
+# 伪静态规则
+if (!-e $request_filename) {
+    rewrite  ^(.*)$  /index.php?s=/$1  last;
+    break;
+}
